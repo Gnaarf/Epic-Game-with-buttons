@@ -7,6 +7,8 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ScreenUtils;
 import gamejam.megaepicgamejamgame.levels.Level01;
+import gamejam.megaepicgamejamgame.levels.Level03;
+import gamejam.megaepicgamejamgame.levels.LevelCord;
 
 import java.awt.*;
 
@@ -31,8 +33,7 @@ public class StartScreen implements Screen {
 
         game.font.getData().setScale(5);
 
-        game.font.draw(game.batch, "Press the Button to Start the Game", 50, 250f);
-        game.font.draw(game.batch, "A", 200f, 120f);
+        game.font.draw(game.batch, "Start Screen \nPress the Button \nA", 50, 400f);
 
         Gdx.app.log("TEST", "Should show stuff");
 
