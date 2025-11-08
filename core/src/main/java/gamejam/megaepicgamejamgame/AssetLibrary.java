@@ -25,7 +25,7 @@ public final class AssetLibrary {
     public Array<Sound> frustrationSounds;
 
     public BitmapFont defaultFont;
-    public BitmapFont boltFont;
+    public BitmapFont boldFont;
 
     private AssetLibrary() {
         // Textures
@@ -39,7 +39,7 @@ public final class AssetLibrary {
         loadSounds();
 
         defaultFont = generateFont(false, 40);
-        boltFont = generateFont(true, 40);
+        boldFont = generateFont(true, 40);
     }
 
     private void loadSounds() {
