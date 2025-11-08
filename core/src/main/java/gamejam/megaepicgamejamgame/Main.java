@@ -13,6 +13,8 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void create() {
+        // init assets
+        AssetLibrary.getInstance();
         batch = new SpriteBatch();
         image = new Texture("libgdx.png");
     }
