@@ -29,10 +29,10 @@ public class Main extends ApplicationAdapter {
         font = new BitmapFont();
 
 
-        button = Button.Create(new Vector2(50,50));
+        button = new Button(new Vector2(50,50));
 
         TextureRegion buttonFrame1 = new TextureRegion(new Texture("button_up.png"));
-        TextureRegion buttonFrame2 = new TextureRegion(new Texture("dickbutt\\button_down.png"));
+        TextureRegion buttonFrame2 = new TextureRegion(new Texture("button_down.png"));
         buttonAnimation = new Animation<TextureRegion>(1f, buttonFrame1, buttonFrame2);
     }
 
