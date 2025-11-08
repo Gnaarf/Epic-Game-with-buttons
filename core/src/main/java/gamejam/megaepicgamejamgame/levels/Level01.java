@@ -31,7 +31,7 @@ public class Level01 extends LevelScreen {
         game.batch.end();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.A)) {
-            game.setScreen(new Level01(game));
+            game.setScreen(new Level02(game));
         }
         else if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
             game.setScreen(new FailScreen(game, this, new Level01(game)));
