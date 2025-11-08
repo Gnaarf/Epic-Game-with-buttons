@@ -49,7 +49,7 @@ public class Level03 extends LevelScreen {
         else if (Gdx.input.isKeyPressed(Input.Keys.D)) {
             progress += progressStep;
             if(progress >= 1f){
-                initSuccess(new Level03(game));
+                initSuccess(new Level04(game));
             }
         }
         else if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {

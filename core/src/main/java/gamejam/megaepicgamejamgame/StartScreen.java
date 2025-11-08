@@ -7,6 +7,8 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ScreenUtils;
 import gamejam.megaepicgamejamgame.levels.Level01;
+import gamejam.megaepicgamejamgame.levels.Level04;
+import gamejam.megaepicgamejamgame.levels.LevelCord;
 
 import java.awt.*;
 
