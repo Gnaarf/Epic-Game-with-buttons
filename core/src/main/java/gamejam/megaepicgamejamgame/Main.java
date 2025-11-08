@@ -1,6 +1,7 @@
 package gamejam.megaepicgamejamgame;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,13 +11,15 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
     private Texture image;
+    private ButtonGame game;
 
     @Override
     public void create() {
         // init assets
         AssetLibrary.getInstance();
-        batch = new SpriteBatch();
-        image = new Texture("libgdx.png");
+        game = new ButtonGame();
+        game.create();
+
     }
 
     float f = 0f;
