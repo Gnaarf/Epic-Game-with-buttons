@@ -22,6 +22,11 @@ public final class AssetLibrary {
 
     // Sounds
     public Sound winSound;
+    public Sound buttonDownSound;
+    public Sound buttonUpSound;
+    public Sound swooshSound;
+    public Sound fakeWinSound;
+    public Sound windowsErrorSound;
     public Array<Sound> frustrationSounds;
 
     public BitmapFont defaultFont;
@@ -44,6 +49,11 @@ public final class AssetLibrary {
 
     private void loadSounds() {
         winSound = Gdx.audio.newSound(Gdx.files.internal("winning_chime.mp3"));
+        buttonDownSound = Gdx.audio.newSound(Gdx.files.internal("button_press_down.mp3"));
+        buttonUpSound = Gdx.audio.newSound(Gdx.files.internal("button_press_up.mp3"));
+        swooshSound = Gdx.audio.newSound(Gdx.files.internal("swoosh_sound_effect.mp3"));
+        fakeWinSound = Gdx.audio.newSound(Gdx.files.internal("fakeout_chime.mp3"));
+        windowsErrorSound = Gdx.audio.newSound(Gdx.files.internal("Windows Background.mp3"));
 
         frustrationSounds = new Array<>();
 

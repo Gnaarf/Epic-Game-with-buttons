@@ -14,6 +14,8 @@ public class Level03 extends LevelScreen {
     float buttonStartY;
     float progress = 0f;
 
+    boolean hasSwooshed = false;
+
     public Level03(final ButtonGame game) {
         super(game);
         buttonStartY = 80;
@@ -27,10 +29,14 @@ public class Level03 extends LevelScreen {
         ScreenUtils.clear(Color.BLACK);
 
         game.batch.begin();
-
         button.position.y = Math.min(button.position.y, buttonStartY - Math.min(Math.max(0f, (progress - 0.6f)), 0.02f) * 5100f); // magic numbers. don't touch.
         button.up = progress < 0.98f;
         button.Render(game.batch);
+
+        if (!hasSwooshed && progress > 0.6f) {
+            hasSwooshed = true;
+            AssetLibrary.getInstance().swooshSound.play();
+        }
 
         Texture fingerTexture = AssetLibrary.getInstance().pointing_index_finger;
         float width = 130f;

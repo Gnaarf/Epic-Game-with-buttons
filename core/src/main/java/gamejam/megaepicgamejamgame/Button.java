@@ -1,5 +1,6 @@
 package gamejam.megaepicgamejamgame;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
@@ -17,6 +18,9 @@ public class Button {
     static Texture image_up;
     static Texture image_down;
 
+    // only for internal state tracking -> don't use!!!
+    private boolean lastButtonState;
+
     public Button(float x, float y) {
         this(new Vector2(x, y));
     }
@@ -27,6 +31,7 @@ public class Button {
             image_down = new Texture("button_down.png");
         }
         this.up = true;
+        lastButtonState = this.up;
         this.position = position;
         this.scale = 1f;
         float defaultWidth = 100;
@@ -44,6 +49,14 @@ public class Button {
     public void Render(SpriteBatch batch) {
         Texture image = IsUp() ? image_up : image_down;
         batch.draw(image, position.x, position.y, defaultSize.x * scale, defaultSize.y * scale);
+
+        // play sound on button state change
+        if (lastButtonState != IsUp()) {
+            lastButtonState = IsUp();
+            Sound soundToPlay = IsUp() ? AssetLibrary.getInstance().buttonUpSound : AssetLibrary.getInstance().buttonDownSound;
+            soundToPlay.play();
+
+        }
     }
 
     Vector2 GetSize(){
