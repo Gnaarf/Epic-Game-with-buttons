@@ -2,6 +2,7 @@ package gamejam.megaepicgamejamgame;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import org.w3c.dom.Text;
 
@@ -36,7 +37,7 @@ public class Button {
         return up;
     }
 
-    public boolean IsDown(){
+    public boolean IsDown() {
         return !up;
     }
 
@@ -45,8 +46,12 @@ public class Button {
         batch.draw(image, position.x, position.y, defaultSize.x * scale, defaultSize.y * scale);
     }
 
+    Vector2 GetSize(){
+        return new Vector2(defaultSize.x * scale, defaultSize.y * scale);
+    }
+
     public boolean IsMouseOver(){
-        Mouse.GetPosition();
-        return true;
+        Rectangle rect = new Rectangle(position.x, position.y, GetSize().x, GetSize().y);
+        return rect.contains(Mouse.GetPosition());
     }
 }
