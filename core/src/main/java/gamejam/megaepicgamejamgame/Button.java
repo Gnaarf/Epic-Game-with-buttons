@@ -17,6 +17,10 @@ public class Button {
     static Texture image_up;
     static Texture image_down;
 
+    public Button(float x, float y) {
+        this(new Vector2(x, y));
+    }
+
     public Button(Vector2 position){
         if(image_up == null){
             image_up = new Texture("button_up.png");
