@@ -11,10 +11,8 @@ import gamejam.megaepicgamejamgame.LevelScreen;
 
 public class Level01 extends LevelScreen {
 
-    final ButtonGame game;
-
     public Level01(final ButtonGame game) {
-        this.game = game;
+        super(game);
     }
 
     @Override
@@ -31,10 +29,10 @@ public class Level01 extends LevelScreen {
         game.batch.end();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.A)) {
-            game.setScreen(new Level01(game));
+            initSuccess(new Level01(game));
         }
         else if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-            game.setScreen(new FailScreen(game, this, new Level01(game)));
+            initFail(new Level01(game));
         }
 
     }

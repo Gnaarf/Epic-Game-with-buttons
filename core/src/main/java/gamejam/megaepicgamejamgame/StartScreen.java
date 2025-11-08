@@ -29,8 +29,6 @@ public class StartScreen implements Screen {
 
         game.batch.begin();
 
-        game.font.getData().setScale(5);
-
         game.font.draw(game.batch, "Press the Button to Start the Game", 50, 250f);
         game.font.draw(game.batch, "A", 200f, 120f);
 

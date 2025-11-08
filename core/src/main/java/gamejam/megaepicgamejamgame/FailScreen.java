@@ -3,6 +3,7 @@ package gamejam.megaepicgamejamgame;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ScreenUtils;
 import gamejam.megaepicgamejamgame.levels.Level01;
@@ -12,11 +13,14 @@ public class FailScreen implements Screen {
     final ButtonGame game;
     LevelScreen failedLevel;
     LevelScreen nextLevel;
+    Sound currentFrustrationSound;
 
     public FailScreen(final ButtonGame game, LevelScreen failedLevel, LevelScreen nextLevel) {
         this.game = game;
         this.failedLevel = failedLevel;
         this.nextLevel = nextLevel;
+        currentFrustrationSound = AssetLibrary.getInstance().getRandomFrustationSound();
+        currentFrustrationSound.play();
     }
 
     @Override
@@ -39,6 +43,8 @@ public class FailScreen implements Screen {
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.N)) {
             game.setScreen(nextLevel);
+            failedLevel.dispose();
+            currentFrustrationSound.stop();
             dispose();
         }
     }

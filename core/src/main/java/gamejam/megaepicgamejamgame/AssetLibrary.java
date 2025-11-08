@@ -3,6 +3,11 @@ package gamejam.megaepicgamejamgame;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.utils.Array;
+
+import java.util.Random;
 
 public final class AssetLibrary {
     private static AssetLibrary INSTANCE;
@@ -13,16 +18,36 @@ public final class AssetLibrary {
     public Texture button_up;
 
     // Sounds
-    public Sound moan_01;
-    public Sound moan_02;
+    public Sound winSound;
+    public Array<Sound> frustrationSounds;
+
+    public BitmapFont defaultFont;
+    public BitmapFont boltFont;
+
     private AssetLibrary() {
         // Textures
         button_down = new Texture("button_down.png");
         button_up = new Texture("button_up.png");
         libgdx_logo = new Texture("libgdx.png");
 
-        moan_01 = Gdx.audio.newSound(Gdx.files.internal("moan_01.mp3"));
-        moan_02 = Gdx.audio.newSound(Gdx.files.internal("moan_01.mp3"));
+        loadSounds();
+
+        defaultFont = generateFont(false, 40);
+        boltFont = generateFont(true, 40);
+    }
+
+    private void loadSounds() {
+        winSound = Gdx.audio.newSound(Gdx.files.internal("winning_chime.mp3"));
+
+        frustrationSounds = new Array<>();
+
+        frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("moan_01.mp3")));
+        frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("moan_01.mp3")));
+        frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("sentence_01.mp3")));
+        frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("sentence_02.mp3")));
+        frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("sentence_03.mp3")));
+        frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("sentence_04.mp3")));
+        frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("sentence_05.mp3")));
     }
 
     public static AssetLibrary getInstance() {
@@ -32,4 +57,27 @@ public final class AssetLibrary {
 
         return INSTANCE;
     }
+
+    public static BitmapFont generateFont(boolean bold, int size) {
+        String fontPath;
+        if (bold) {
+            fontPath = "Montserrat-Bold.ttf";
+        } else {
+            fontPath = "Montserrat-Medium.ttf";
+        }
+
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fontPath));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = size;
+        BitmapFont font = generator.generateFont(parameter); // font size 12 pixels
+        generator.dispose();
+
+        return font;
+    }
+    public Sound getRandomFrustationSound() {
+        Random random = new Random();
+        int index = random.nextInt(frustrationSounds.size);
+        return frustrationSounds.get(index);
+    }
 }
+
