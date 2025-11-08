@@ -45,7 +45,7 @@ public class LevelScreen implements Screen {
             public void run() {
                 successTransition();
             }
-        }, 2f);
+        }, 1f);
     }
 
     public void successTransition() {

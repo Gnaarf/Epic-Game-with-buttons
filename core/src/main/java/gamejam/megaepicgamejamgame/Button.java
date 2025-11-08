@@ -17,20 +17,20 @@ public class Button {
     static Texture image_up;
     static Texture image_down;
 
-    Button(Vector2 position){
+    public Button(float x, float y) {
+        this(new Vector2(x, y));
+    }
+
+    public Button(Vector2 position){
+        if(image_up == null){
+            image_up = new Texture("button_up.png");
+            image_down = new Texture("button_down.png");
+        }
         this.up = true;
         this.position = position;
         this.scale = 1f;
         float defaultWidth = 100;
         defaultSize = new Vector2(defaultWidth, defaultWidth * image_up.getHeight() / image_up.getWidth());
-    }
-
-    public static Button Create(Vector2 position){
-        if(image_up == null){
-            image_up = new Texture("button_up.png");
-            image_down = new Texture("button_down.png");
-        }
-        return new Button(position);
     }
 
     public boolean IsUp(){

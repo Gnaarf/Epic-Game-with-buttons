@@ -29,7 +29,7 @@ public class Level01 extends LevelScreen {
         game.batch.end();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.A)) {
-            initSuccess(new Level01(game));
+            initSuccess(new Level02(game));
         }
         else if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
             initFail(new Level01(game));

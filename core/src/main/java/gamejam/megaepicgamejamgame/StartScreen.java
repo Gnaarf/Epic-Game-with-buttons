@@ -25,12 +25,11 @@ public class StartScreen implements Screen {
 
     @Override
     public void render(float v) {
-        ScreenUtils.clear(Color.CLEAR_WHITE);
+        ScreenUtils.clear(Color.GREEN);
 
         game.batch.begin();
 
-        game.font.draw(game.batch, "Press the Button to Start the Game", 50, 250f);
-        game.font.draw(game.batch, "A", 200f, 120f);
+        game.font.draw(game.batch, "Start Screen \nPress the Button \nA", 50, 400f);
 
         Gdx.app.log("TEST", "Should show stuff");
 

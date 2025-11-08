@@ -16,6 +16,9 @@ public final class AssetLibrary {
     public Texture libgdx_logo;
     public Texture button_down;
     public Texture button_up;
+    public Texture pointing_index_finger;
+    public Texture safety_lid;
+    public Texture safety_lid_transparent;
 
     // Sounds
     public Sound winSound;
@@ -29,6 +32,9 @@ public final class AssetLibrary {
         button_down = new Texture("button_down.png");
         button_up = new Texture("button_up.png");
         libgdx_logo = new Texture("libgdx.png");
+        pointing_index_finger = new Texture("pointing_index_finger.png");
+        safety_lid = new Texture("safety_lid.png");
+        safety_lid_transparent = new Texture("safety_lid_transparent.png");
 
         loadSounds();
 

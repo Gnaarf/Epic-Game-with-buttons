@@ -6,8 +6,6 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Mouse {
     public static Vector2 GetPosition(){
-        Vector2 position = new Vector2(Gdx.input.getX(), Gdx.input.getY());
-
         return new Vector2(Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY());
     }
 
