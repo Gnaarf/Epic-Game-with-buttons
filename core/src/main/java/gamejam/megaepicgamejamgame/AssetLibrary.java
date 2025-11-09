@@ -27,6 +27,7 @@ public final class AssetLibrary {
     public Sound buttonDownSound;
     public Sound buttonUpSound;
     public Sound swooshSound;
+    public Sound swooshSoundNoDelay;
     public Sound fakeWinSound;
     public Sound windowsErrorSound;
     public Sound mousePeep;
@@ -57,6 +58,7 @@ public final class AssetLibrary {
         buttonDownSound = Gdx.audio.newSound(Gdx.files.internal("button_press_down.mp3"));
         buttonUpSound = Gdx.audio.newSound(Gdx.files.internal("button_press_up.mp3"));
         swooshSound = Gdx.audio.newSound(Gdx.files.internal("swoosh_sound_effect.mp3"));
+        swooshSoundNoDelay = Gdx.audio.newSound(Gdx.files.internal("swoosh_sound_effect_no_delay.wav"));
         fakeWinSound = Gdx.audio.newSound(Gdx.files.internal("fakeout_chime.mp3"));
         windowsErrorSound = Gdx.audio.newSound(Gdx.files.internal("Windows Background.mp3"));
         mousePeep = Gdx.audio.newSound(Gdx.files.internal("mouse_peep.mp3"));
