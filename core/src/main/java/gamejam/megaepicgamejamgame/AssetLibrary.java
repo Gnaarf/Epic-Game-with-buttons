@@ -23,6 +23,9 @@ public final class AssetLibrary {
     public Texture conveyorBelt1;
     public Texture conveyorBelt2;
     public Texture zoom_icon;
+    public Texture houseOpen;
+    public Texture houseClosed;
+    public Texture playMobilMan;
 
     // Sounds
     public Sound winSound;
@@ -50,6 +53,9 @@ public final class AssetLibrary {
         conveyorBelt1 = new Texture("Conveyorbelt_1.png");
         conveyorBelt2 = new Texture("Conveyorbelt_2.png");
         zoom_icon = new Texture("Zoom Plus.png");
+        playMobilMan = new Texture("ButtonGame_person.png");
+        houseOpen = new Texture("ButtonGame_house_open.png");
+        houseClosed = new Texture("ButtonGame_house_closed.png");
 
         loadSounds();
 
