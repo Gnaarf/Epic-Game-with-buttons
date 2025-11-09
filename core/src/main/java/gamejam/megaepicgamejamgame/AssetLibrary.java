@@ -20,6 +20,7 @@ public final class AssetLibrary {
     public Texture safety_lid;
     public Texture safety_lid_transparent;
     public Texture mouse;
+    public Texture zoom_icon;
 
     // Sounds
     public Sound winSound;
@@ -43,7 +44,7 @@ public final class AssetLibrary {
         safety_lid = new Texture("safety_lid.png");
         safety_lid_transparent = new Texture("safety_lid_transparent.png");
         mouse = new Texture("ButtonGame_mouse.png");
-
+        zoom_icon = new Texture("Zoom Plus.png");
 
         loadSounds();
 

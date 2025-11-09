@@ -29,8 +29,6 @@ public class StartScreen implements Screen {
 
         game.font.draw(game.batch, "Start Screen \nPress the Button \nA", 50, 400f);
 
-        Gdx.app.log("TEST", "Should show stuff");
-
         game.batch.end();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.A)) {
