@@ -32,7 +32,7 @@ public class LevelUnpressTheButton extends LevelScreen {
 
         switch(state) {
             case START:
-                if(Gdx.input.isKeyJustPressed(Input.Keys.LEFT) && !button.IsMouseOver()) {
+                if(Gdx.input.isButtonJustPressed(Input.Buttons.LEFT) && !button.IsMouseOver()) {
                     state = LevelState.LEFT_MOUSE_DOWN;
                 }
                 else if (InputHelper.anythingWasClickedOrPressed()){
@@ -40,11 +40,12 @@ public class LevelUnpressTheButton extends LevelScreen {
                 }
                 break;
             case  LEFT_MOUSE_DOWN:
-                if(button.IsMouseOver() && !Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+                if(button.IsMouseOver() && !Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
                     state = LevelState.RELEASE_AND_WIN;
+                    button.up = true;
                     initSuccess();
                 }
-                else if (InputHelper.anythingWasClickedOrPressed() || !Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+                else if (!Gdx.input.isButtonPressed(Input.Buttons.LEFT) || InputHelper.anythingWasClickedOrPressed()){
                     initFail(new LevelUnpressTheButton(game));
                 }
                 break;
