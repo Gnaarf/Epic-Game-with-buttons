@@ -46,14 +46,14 @@ public class LevelPressFourButtons extends LevelScreen {
             //failStatePossible = false;
             switch (buttonPressCounter) {
                 case 1:
-                    message = "Press the Button \nagain";
+                    message = "Press the Button \ntwice";
                     break;
                 case 2:
-                    message = "Press the Button \nagain again";
+                    message = "Press the Button \ntwice";
                     button.position.add(400, 230);
                     break;
                 case 3:
-                    message = "Press the Button \nagain again again";
+                    message = "Press the Button \nonce again";
                     button.position.add(-350, 120);
                     break;
                 case 4:
