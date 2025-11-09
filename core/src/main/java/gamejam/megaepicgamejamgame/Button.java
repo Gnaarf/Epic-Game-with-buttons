@@ -12,6 +12,7 @@ public class Button {
     public boolean up;
     public Vector2 position;
     public float scale;
+    public String text;
 
     Vector2 defaultSize;
 
@@ -22,10 +23,16 @@ public class Button {
     private boolean lastButtonState;
 
     public Button(float x, float y) {
-        this(new Vector2(x, y));
+        this(new Vector2(x, y), "");
+    }
+    public Button(float x, float y, String text) {
+        this(new Vector2(x, y), text);
+    }
+    public Button(Vector2 position) {
+        this(position, "");
     }
 
-    public Button(Vector2 position){
+    public Button(Vector2 position, String text){
         if(image_up == null){
             image_up = new Texture("button_up.png");
             image_down = new Texture("button_down.png");
@@ -34,6 +41,7 @@ public class Button {
         lastButtonState = this.up;
         this.position = position;
         this.scale = 1f;
+        this.text = text;
         float defaultWidth = 100;
         defaultSize = new Vector2(defaultWidth, defaultWidth * image_up.getHeight() / image_up.getWidth());
     }
@@ -49,6 +57,9 @@ public class Button {
     public void Render(SpriteBatch batch) {
         Texture image = IsUp() ? image_up : image_down;
         batch.draw(image, position.x, position.y, defaultSize.x * scale, defaultSize.y * scale);
+        Vector2 textPos = new Vector2(position.x + 35*scale, position.y+85*scale);
+        if(IsDown()){textPos.y -= 10*scale;}
+        AssetLibrary.getInstance().defaultFont.draw(batch, text, textPos.x,  textPos.y);
 
         // play sound on button state change
         if (lastButtonState != IsUp()) {
