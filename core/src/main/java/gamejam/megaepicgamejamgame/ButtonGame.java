@@ -1,6 +1,7 @@
 package gamejam.megaepicgamejamgame;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import gamejam.megaepicgamejamgame.levels.*;
@@ -11,9 +12,12 @@ public class ButtonGame extends Game {
     public BitmapFont font;
     public BitmapFont boldFont;
 
+    public int level;
+
     @Override
     public void create() {
         batch = new SpriteBatch();
+        level = 1;
 
         font = AssetLibrary.getInstance().defaultFont;
         boldFont = AssetLibrary.getInstance().boldFont;
@@ -21,13 +25,26 @@ public class ButtonGame extends Game {
         this.setScreen(new StartScreen(this));
     }
 
+    public void startNextLevel() {
+        this.level++;
+        startLevel(this.level);
+    }
+    public void restartLevel() {
+        startLevel(this.level);
+    }
+
     public void startLevel(int level) {
+        this.level = level; 
         switch (level) {
             case 1: this.setScreen(new Level01(this)); break;
             case 2: this.setScreen(new Level02(this)); break;
             case 3: this.setScreen(new Level03(this)); break;
             case 4: this.setScreen(new Level04(this)); break;
             case 5: this.setScreen(new LevelMouse(this)); break;
+            default:
+                Gdx.app.log("ERROR", "Reached max level Count -> Restarting!");
+                this.level = 1;
+                this.setScreen(new StartScreen(this));
         }
     }
 

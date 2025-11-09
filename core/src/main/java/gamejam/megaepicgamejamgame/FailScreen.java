@@ -15,10 +15,9 @@ public class FailScreen implements Screen {
     LevelScreen nextLevel;
     Sound currentFrustrationSound;
 
-    public FailScreen(final ButtonGame game, LevelScreen failedLevel, LevelScreen nextLevel) {
+    public FailScreen(final ButtonGame game, LevelScreen failedLevel) {
         this.game = game;
         this.failedLevel = failedLevel;
-        this.nextLevel = nextLevel;
         currentFrustrationSound = AssetLibrary.getInstance().getRandomFrustationSound();
         currentFrustrationSound.play();
     }
@@ -42,10 +41,9 @@ public class FailScreen implements Screen {
         game.batch.end();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.N)) {
-            game.setScreen(nextLevel);
-            failedLevel.dispose();
-            currentFrustrationSound.stop();
             dispose();
+            game.restartLevel();
+            currentFrustrationSound.stop();
         }
     }
 

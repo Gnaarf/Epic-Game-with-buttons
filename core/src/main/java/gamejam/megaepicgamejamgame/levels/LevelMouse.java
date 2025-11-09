@@ -63,7 +63,7 @@ public class LevelMouse extends LevelScreen {
         }
 
         if (!mouseIsOverMouse && Gdx.input.isButtonJustPressed(Input.Buttons.LEFT)) {
-            initSuccess(new LevelMouse(game));
+            initSuccess();
         }
         else if (InputHelper.anythingWasClickedOrPressed()) {
             initFail(new LevelMouse(game));

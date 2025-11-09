@@ -57,7 +57,7 @@ public class Level02 extends LevelScreen {
                     button.position.add(-350, 120);
                     break;
                 case 4:
-                    initSuccess(new Level03(game)); //todo go to next level
+                    initSuccess(); //todo go to next level
                     break;
                 default:
                     break;

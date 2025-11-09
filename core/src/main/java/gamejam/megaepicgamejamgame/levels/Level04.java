@@ -67,7 +67,7 @@ public class Level04 extends LevelScreen {
         }
         else if (!buttonIsLidded && Gdx.input.isButtonJustPressed(Input.Buttons.LEFT) && button.IsMouseOver()) {
             button.up = false;
-            initSuccess(new Level04(game));
+            initSuccess();
         }
         else if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY) || Gdx.input.isButtonJustPressed(Input.Buttons.LEFT) || Gdx.input.isButtonJustPressed(Input.Buttons.RIGHT)) {
             initFail(new Level04(game));

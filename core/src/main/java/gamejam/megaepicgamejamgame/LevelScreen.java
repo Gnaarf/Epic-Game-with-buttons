@@ -11,8 +11,6 @@ public class LevelScreen implements Screen {
     public final ButtonGame game;
 
     // variables for the Transition Transition
-    protected LevelScreen levelAfterFail;
-    protected LevelScreen nextLevel;
     protected boolean alreadyWon;
 
     private Timer transitionTimer;
@@ -64,16 +62,14 @@ public class LevelScreen implements Screen {
 
     public void initFail(LevelScreen _levelAfterFail) {
         if (!this.alreadyWon) {
-            this.levelAfterFail = _levelAfterFail;
-            game.setScreen(new FailScreen(this.game, this, levelAfterFail));
+            game.setScreen(new FailScreen(this.game, this));
             dispose();
         }
     }
 
-    public void initSuccess(LevelScreen _nextLevel) {
+    public void initSuccess() {
         if (!this.alreadyWon) {
             this.alreadyWon = true;
-            this.nextLevel = _nextLevel;
             AssetLibrary.getInstance().winSound.play();
             transitionTimer.scheduleTask(new Timer.Task() {
                 @Override
@@ -85,8 +81,8 @@ public class LevelScreen implements Screen {
     }
 
     public void successTransition() {
-        game.setScreen(nextLevel);
         this.dispose();
+        game.startNextLevel();
     }
 
     @Override
