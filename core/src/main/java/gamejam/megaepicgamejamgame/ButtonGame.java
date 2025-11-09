@@ -34,7 +34,7 @@ public class ButtonGame extends Game {
     }
 
     public void startLevel(int level) {
-        this.level = level; 
+        this.level = level;
         switch (level) {
             case 1: this.setScreen(new Level01(this)); break;
             case 2: this.setScreen(new Level02(this)); break;
