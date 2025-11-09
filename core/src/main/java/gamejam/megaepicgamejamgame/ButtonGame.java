@@ -3,6 +3,7 @@ package gamejam.megaepicgamejamgame;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import gamejam.megaepicgamejamgame.levels.*;
 
 public class ButtonGame extends Game {
 
@@ -20,6 +21,15 @@ public class ButtonGame extends Game {
         this.setScreen(new StartScreen(this));
     }
 
+    public void startLevel(int level) {
+        switch (level) {
+            case 1: this.setScreen(new Level01(this)); break;
+            case 2: this.setScreen(new Level02(this)); break;
+            case 3: this.setScreen(new Level03(this)); break;
+            case 4: this.setScreen(new Level04(this)); break;
+            case 5: this.setScreen(new LevelMouse(this)); break;
+        }
+    }
 
     public  void render() {
         super.render();

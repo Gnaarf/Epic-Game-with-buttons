@@ -19,6 +19,7 @@ public final class AssetLibrary {
     public Texture pointing_index_finger;
     public Texture safety_lid;
     public Texture safety_lid_transparent;
+    public Texture mouse;
 
     // Sounds
     public Sound winSound;
@@ -27,6 +28,7 @@ public final class AssetLibrary {
     public Sound swooshSound;
     public Sound fakeWinSound;
     public Sound windowsErrorSound;
+    public Sound mousePeep;
     public Array<Sound> frustrationSounds;
 
     public BitmapFont defaultFont;
@@ -40,6 +42,8 @@ public final class AssetLibrary {
         pointing_index_finger = new Texture("pointing_index_finger.png");
         safety_lid = new Texture("safety_lid.png");
         safety_lid_transparent = new Texture("safety_lid_transparent.png");
+        mouse = new Texture("ButtonGame_mouse.png");
+
 
         loadSounds();
 
@@ -54,6 +58,7 @@ public final class AssetLibrary {
         swooshSound = Gdx.audio.newSound(Gdx.files.internal("swoosh_sound_effect.mp3"));
         fakeWinSound = Gdx.audio.newSound(Gdx.files.internal("fakeout_chime.mp3"));
         windowsErrorSound = Gdx.audio.newSound(Gdx.files.internal("Windows Background.mp3"));
+        mousePeep = Gdx.audio.newSound(Gdx.files.internal("mouse_peep.mp3"));
 
         frustrationSounds = new Array<>();
 
