@@ -22,6 +22,7 @@ public final class AssetLibrary {
     public Texture mouse;
     public Texture conveyorBelt1;
     public Texture conveyorBelt2;
+    public Texture zoom_icon;
 
     // Sounds
     public Sound winSound;
@@ -48,7 +49,7 @@ public final class AssetLibrary {
         mouse = new Texture("ButtonGame_mouse.png");
         conveyorBelt1 = new Texture("Conveyorbelt_1.png");
         conveyorBelt2 = new Texture("Conveyorbelt_2.png");
-
+        zoom_icon = new Texture("Zoom Plus.png");
 
         loadSounds();
 
