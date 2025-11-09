@@ -22,7 +22,7 @@ public class ButtonGame extends Game {
         font = AssetLibrary.getInstance().defaultFont;
         boldFont = AssetLibrary.getInstance().boldFont;
 
-        this.setScreen(new StartScreen(this));
+        this.setScreen(new LevelSimpleButton(this));
     }
 
     public void startNextLevel() {
