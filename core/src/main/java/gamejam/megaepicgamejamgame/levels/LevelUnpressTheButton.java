@@ -42,7 +42,7 @@ public class LevelUnpressTheButton extends LevelScreen {
             case  LEFT_MOUSE_DOWN:
                 if(button.IsMouseOver() && !Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
                     state = LevelState.RELEASE_AND_WIN;
-                    initSuccess(new LevelUnpressTheButton(game));
+                    initSuccess();
                 }
                 else if (InputHelper.anythingWasClickedOrPressed() || !Gdx.input.isKeyPressed(Input.Keys.LEFT)){
                     initFail(new LevelUnpressTheButton(game));
@@ -57,7 +57,7 @@ public class LevelUnpressTheButton extends LevelScreen {
 
         button.Render(game.batch);
 
-        game.font.draw(game.batch, "Unpress the button", 100, 500f);
+        game.font.draw(game.batch, "Unpress the button", 100, 400f);
 
         game.batch.end();
     }

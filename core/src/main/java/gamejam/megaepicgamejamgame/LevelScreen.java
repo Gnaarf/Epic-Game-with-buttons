@@ -46,6 +46,21 @@ public class LevelScreen implements Screen {
             else if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_5)) {
                 goToLevel = 5;
             }
+            else if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_6)) {
+                goToLevel = 6;
+            }
+            else if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_7)) {
+                goToLevel = 7;
+            }
+            else if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_8)) {
+                goToLevel = 8;
+            }
+            else if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_9)) {
+                goToLevel = 9;
+            }
+            else if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_0)) {
+                goToLevel = 10;
+            }
 
             if (goToLevel > 0) {
                 final int level = goToLevel;
