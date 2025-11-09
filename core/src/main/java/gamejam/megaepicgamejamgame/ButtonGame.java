@@ -44,7 +44,7 @@ public class ButtonGame extends Game {
             case 6: this.setScreen(new LevelUnpressTheButton(this)); break;
             case 7: this.setScreen(new LevelConveyor(this)); break;
             case 8: this.setScreen(new LevelZoomButton(this)); break;
-            case 10: this.setScreen(new LevelHouseEnter(this)); break;
+            case 9: this.setScreen(new LevelHouseEnter(this)); break;
             default:
                 Gdx.app.log("ERROR", "Reached max level Count -> Restarting!");
                 this.level = 1;

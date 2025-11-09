@@ -33,9 +33,14 @@ public class LevelHouseEnter extends LevelScreen {
     public LevelHouseEnter(final ButtonGame game) {
         super(game);
 
+        text = "Move Right!";
+
         houseOpen = AssetLibrary.getInstance().houseOpen;
         houseClosed = AssetLibrary.getInstance().houseClosed;
         person = new Sprite(AssetLibrary.getInstance().playMobilMan);
+
+        person.setScale(0.1f);
+        person.setPosition(-10,-355);
     }
 
     @Override
@@ -45,14 +50,24 @@ public class LevelHouseEnter extends LevelScreen {
 
         game.batch.begin();
 
-        game.font.draw(game.batch, "Press the Button", 100, 300f);
+        //game.font.draw(game.batch, "Press the Button", 100, 300f);
         if (state != WalkState.SHOULD_ENTER) {
         }
         else {
 
         }
-        game.batch.draw();
-        game.boldFont.draw(game.batch,  "+", 450, 200f);
+
+        float houseTextureWidth = 230f;
+        if(state == WalkState.WALKING_RIGHT) {
+            game.batch.draw(houseClosed, 50, 50,houseTextureWidth, houseClosed.getHeight() * houseTextureWidth / houseClosed.getWidth());
+        }
+        else{
+            game.batch.draw(houseOpen, 50, 50,houseTextureWidth, houseClosed.getHeight() * houseTextureWidth / houseClosed.getWidth());
+        }
+
+        person.draw(game.batch);
+
+        game.boldFont.draw(game.batch, text, 100, 400f);
 
         game.batch.end();
 
@@ -60,6 +75,7 @@ public class LevelHouseEnter extends LevelScreen {
             case WALKING_RIGHT:
                 if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
                     totalWalkTime += v;
+                    person.setPosition(person.getX() + v * 20f, person.getY());
                     if (totalWalkTime >= maxWalkTime) {
                         state = WalkState.SHOULD_STOP_WALKING;
                         text = "Please Return!";
@@ -78,11 +94,13 @@ public class LevelHouseEnter extends LevelScreen {
             case SHOULD_RETURN:
                 if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) || Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_ENTER)) {
                     state = WalkState.SHOULD_ENTER;
+                    text = "Please Enter!";
                 } else if (InputHelper.anythingWasClickedOrPressed()) {
                     initFail(this);
                 }
                 break;
             case SHOULD_ENTER:
+                person.setPosition( Math.max(-170, person.getX() - v * 2000f), person.getY());
                 if (Gdx.input.isKeyJustPressed(Input.Keys.ENTER) || Gdx.input.isKeyJustPressed(Input.Keys.NUMPAD_ENTER)) {
                     initSuccess();
                 } else if (InputHelper.anythingWasClickedOrPressed()) {
