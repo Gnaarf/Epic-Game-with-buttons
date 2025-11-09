@@ -10,4 +10,8 @@ public class InputHelper {
             || Gdx.input.isButtonJustPressed(Input.Buttons.RIGHT)
             || Gdx.input.isButtonJustPressed(Input.Buttons.MIDDLE);
     }
+
+    public static float Lerp(float start, float end, float t){
+        return t * (end - start) + start;
+    }
 }

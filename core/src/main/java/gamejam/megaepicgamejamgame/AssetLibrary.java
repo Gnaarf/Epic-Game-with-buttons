@@ -20,6 +20,8 @@ public final class AssetLibrary {
     public Texture safety_lid;
     public Texture safety_lid_transparent;
     public Texture mouse;
+    public Texture conveyorBelt1;
+    public Texture conveyorBelt2;
 
     // Sounds
     public Sound winSound;
@@ -44,6 +46,8 @@ public final class AssetLibrary {
         safety_lid = new Texture("safety_lid.png");
         safety_lid_transparent = new Texture("safety_lid_transparent.png");
         mouse = new Texture("ButtonGame_mouse.png");
+        conveyorBelt1 = new Texture("Conveyorbelt_1.png");
+        conveyorBelt2 = new Texture("Conveyorbelt_2.png");
 
 
         loadSounds();

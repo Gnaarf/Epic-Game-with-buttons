@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 import gamejam.megaepicgamejamgame.*;
+import org.w3c.dom.Text;
 
 import java.util.Random;
 
@@ -16,7 +17,7 @@ public class LevelConveyor extends LevelScreen {
     float conveyorSpeed;
     float fingerStartTime;
     float time;
-    boolean fingerIsMovingUp;
+    float fingerTimer;
 
     public LevelConveyor(final ButtonGame game) {
         super(game);
@@ -31,7 +32,7 @@ public class LevelConveyor extends LevelScreen {
             buttons[i] = new Button(50 - i*150, 50, "" + buttonLabels[i]);
         }
         fingerStartTime = -10f;
-        fingerIsMovingUp = true;
+        fingerTimer = 3f;
         this.time = 0f;
     }
 
@@ -49,6 +50,7 @@ public class LevelConveyor extends LevelScreen {
         if(InputHelper.anythingWasClickedOrPressed()) {
             boolean fail = true;
             AssetLibrary.getInstance().swooshSoundNoDelay.play();
+            fingerTimer = 0f;
             for (Button b : buttons) {
                 if (300 < b.position.x && b.position.x < 400 && Gdx.input.isKeyPressed((int) (Input.Keys.A + (b.text.charAt(0) - 'A')))) {
                     fail = false;
@@ -66,7 +68,13 @@ public class LevelConveyor extends LevelScreen {
         }
         if (hasWon) {initSuccess();}
 
+
+
         game.batch.begin();
+
+        float conveyorTextureWidth = 1000f;
+        Texture conveyorTexture = (int)(6*time % 2) == 0 ? AssetLibrary.getInstance().conveyorBelt1 : AssetLibrary.getInstance().conveyorBelt2;
+        game.batch.draw(conveyorTexture, -350,-120, conveyorTextureWidth, conveyorTexture.getHeight() * conveyorTextureWidth / conveyorTexture.getWidth());
 
         for (int i = 0; i < buttons.length; i++) {
             buttons[i].Render(game.batch);
@@ -74,10 +82,11 @@ public class LevelConveyor extends LevelScreen {
 
         //game.font.draw(game.batch, "test", 100, 500f);
 
-        float fingerY = InputHelper.anythingWasClickedOrPressed() ? 100 : 350;
-        float textureWidth = 130f;
+        fingerTimer += Gdx.graphics.getDeltaTime();
+        float fingerY = fingerTimer < 0.3f ? InputHelper.Lerp(350, 100, Math.min(fingerTimer/0.15f, 1f)) : 350;
+        float fingerTextureWidth = 130f;
         Texture fingerTexture = AssetLibrary.getInstance().pointing_index_finger;
-        game.batch.draw(fingerTexture, 350, fingerY, textureWidth, fingerTexture.getHeight() * textureWidth / fingerTexture.getWidth());
+        game.batch.draw(fingerTexture, 350, fingerY, fingerTextureWidth, fingerTexture.getHeight() * fingerTextureWidth / fingerTexture.getWidth());
 
         game.batch.end();
     }
