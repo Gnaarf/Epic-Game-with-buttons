@@ -28,6 +28,7 @@ public class ButtonGame extends Game {
             case 3: this.setScreen(new Level03(this)); break;
             case 4: this.setScreen(new Level04(this)); break;
             case 5: this.setScreen(new LevelMouse(this)); break;
+            case 6: this.setScreen(new LevelUnpressTheButton(this)); break;
         }
     }
 
