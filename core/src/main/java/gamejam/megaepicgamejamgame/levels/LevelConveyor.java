@@ -83,7 +83,7 @@ public class LevelConveyor extends LevelScreen {
         //game.font.draw(game.batch, "test", 100, 500f);
 
         fingerTimer += Gdx.graphics.getDeltaTime();
-        float fingerY = fingerTimer < 0.3f ? InputHelper.Lerp(350, 100, Math.min(fingerTimer/0.15f, 1f)) : 350;
+        float fingerY = fingerTimer < 0.3f ? InputHelper.Lerp(350, 100, Math.min(fingerTimer/0.05f, 1f)) : 350;
         float fingerTextureWidth = 130f;
         Texture fingerTexture = AssetLibrary.getInstance().pointing_index_finger;
         game.batch.draw(fingerTexture, 350, fingerY, fingerTextureWidth, fingerTexture.getHeight() * fingerTextureWidth / fingerTexture.getWidth());

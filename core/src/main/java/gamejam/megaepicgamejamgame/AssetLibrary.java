@@ -82,6 +82,9 @@ public final class AssetLibrary {
         frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("sentence_03.mp3")));
         frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("sentence_04.mp3")));
         frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("sentence_05.mp3")));
+        frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("yikes.wav")));
+        frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("you_suck.wav")));
+        frustrationSounds.add(Gdx.audio.newSound(Gdx.files.internal("neeiiin.wav")));
     }
 
     public static AssetLibrary getInstance() {
