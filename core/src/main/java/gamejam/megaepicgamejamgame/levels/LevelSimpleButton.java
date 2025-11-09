@@ -2,16 +2,14 @@ package gamejam.megaepicgamejamgame.levels;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ScreenUtils;
 import gamejam.megaepicgamejamgame.ButtonGame;
-import gamejam.megaepicgamejamgame.FailScreen;
 import gamejam.megaepicgamejamgame.LevelScreen;
 
-public class Level01 extends LevelScreen {
+public class LevelSimpleButton extends LevelScreen {
 
-    public Level01(final ButtonGame game) {
+    public LevelSimpleButton(final ButtonGame game) {
         super(game);
     }
 
@@ -32,7 +30,7 @@ public class Level01 extends LevelScreen {
             initSuccess();
         }
         else if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-            initFail(new Level01(game));
+            initFail(new LevelSimpleButton(game));
         }
 
     }

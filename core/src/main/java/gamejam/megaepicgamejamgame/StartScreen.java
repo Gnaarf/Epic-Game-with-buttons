@@ -6,11 +6,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.ScreenUtils;
-import gamejam.megaepicgamejamgame.levels.Level01;
-import gamejam.megaepicgamejamgame.levels.Level04;
-import gamejam.megaepicgamejamgame.levels.LevelCord;
-
-import java.awt.*;
+import gamejam.megaepicgamejamgame.levels.LevelSimpleButton;
 
 public class StartScreen implements Screen {
 
@@ -38,7 +34,7 @@ public class StartScreen implements Screen {
         game.batch.end();
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.A)) {
-            game.setScreen(new Level01(game));
+            game.setScreen(new LevelSimpleButton(game));
             dispose();
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {

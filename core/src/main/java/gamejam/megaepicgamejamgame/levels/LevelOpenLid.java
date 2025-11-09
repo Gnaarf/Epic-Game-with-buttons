@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import gamejam.megaepicgamejamgame.*;
 
-public class Level04 extends LevelScreen {
+public class LevelOpenLid extends LevelScreen {
 
     Button button;
     float time;
@@ -18,7 +18,7 @@ public class Level04 extends LevelScreen {
     Sprite lidSprite;
     Sprite lidTransparentSprite;
 
-    public Level04(final ButtonGame game) {
+    public LevelOpenLid(final ButtonGame game) {
         super(game);
         this.button = new Button(300, 150);
         this.time = 0f;
@@ -70,7 +70,7 @@ public class Level04 extends LevelScreen {
             initSuccess();
         }
         else if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY) || Gdx.input.isButtonJustPressed(Input.Buttons.LEFT) || Gdx.input.isButtonJustPressed(Input.Buttons.RIGHT)) {
-            initFail(new Level04(game));
+            initFail(new LevelOpenLid(game));
         }
 
     }

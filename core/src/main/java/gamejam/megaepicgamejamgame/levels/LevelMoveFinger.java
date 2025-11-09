@@ -8,7 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import gamejam.megaepicgamejamgame.*;
 
-public class Level03 extends LevelScreen {
+public class LevelMoveFinger extends LevelScreen {
 
     Button button;
     float buttonStartY;
@@ -16,7 +16,7 @@ public class Level03 extends LevelScreen {
 
     boolean hasSwooshed = false;
 
-    public Level03(final ButtonGame game) {
+    public LevelMoveFinger(final ButtonGame game) {
         super(game);
         buttonStartY = 80;
         button = new Button(new Vector2(225, buttonStartY));
@@ -59,7 +59,7 @@ public class Level03 extends LevelScreen {
             }
         }
         else if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-            initFail(new Level03(game));
+            initFail(new LevelMoveFinger(game));
         }
     }
 }

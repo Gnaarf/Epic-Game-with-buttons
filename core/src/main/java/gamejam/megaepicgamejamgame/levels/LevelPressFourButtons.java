@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import gamejam.megaepicgamejamgame.*;
 
-public class Level02 extends LevelScreen {
+public class LevelPressFourButtons extends LevelScreen {
 
     Button button;
     boolean isButtonPressed;
@@ -16,7 +16,7 @@ public class Level02 extends LevelScreen {
     boolean failStatePossible = true;
 
 
-    public Level02(final ButtonGame game) {
+    public LevelPressFourButtons(final ButtonGame game) {
         super(game);
         button = new Button(new Vector2(50,50));
         isButtonPressed = false;
@@ -64,7 +64,7 @@ public class Level02 extends LevelScreen {
             }
         }
         else if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY) || Gdx.input.isButtonJustPressed(Input.Buttons.LEFT) || Gdx.input.isButtonJustPressed(Input.Buttons.RIGHT)) {
-            initFail(new Level02(game));
+            initFail(new LevelPressFourButtons(game));
         }
     }
 }

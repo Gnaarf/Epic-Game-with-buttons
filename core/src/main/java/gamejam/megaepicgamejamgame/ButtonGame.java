@@ -36,10 +36,10 @@ public class ButtonGame extends Game {
     public void startLevel(int level) {
         this.level = level;
         switch (level) {
-            case 1: this.setScreen(new Level01(this)); break;
-            case 2: this.setScreen(new Level02(this)); break;
-            case 3: this.setScreen(new Level03(this)); break;
-            case 4: this.setScreen(new Level04(this)); break;
+            case 1: this.setScreen(new LevelSimpleButton(this)); break;
+            case 2: this.setScreen(new LevelPressFourButtons(this)); break;
+            case 3: this.setScreen(new LevelMoveFinger(this)); break;
+            case 4: this.setScreen(new LevelOpenLid(this)); break;
             case 5: this.setScreen(new LevelMouse(this)); break;
             case 6: this.setScreen(new LevelUnpressTheButton(this)); break;
             default:
